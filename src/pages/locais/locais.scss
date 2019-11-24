@@ -1,0 +1,54 @@
+page-locais {
+ /*  ion-col {
+    background-color: #42A5F5;
+    height: auto;
+    margin-right: 5px;
+  }
+
+  img {
+    height: 100px;
+    width: auto;
+    margin: auto;
+    display: block;
+  }
+  ion-content {
+    background-color: #DB2323;
+  }
+  div ion-col {
+   // max-width: 70%;
+
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+   // display: inline-block;
+  } */
+    ion-card {
+    position: relative;
+    text-align: center;
+     width:100px;
+    height:200px;
+    display:inline-block;
+    overflow:hidden;
+
+  }
+ 
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 1.5em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+
+}

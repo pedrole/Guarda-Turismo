@@ -1,0 +1,18 @@
+page-roteiros {
+
+  .card-category {
+    font-size: 1.2em;
+    position: relative;
+    top: 70%;
+    //width: auto;
+    display: inline-block;
+    color: white;
+    margin-left: 8px;
+    padding: 4px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    background-color: color($colors, primary);
+  }
+ 
+
+}

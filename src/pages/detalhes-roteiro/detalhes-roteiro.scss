@@ -1,0 +1,24 @@
+page-detalhes-roteiro {
+
+$cor-fundo: #E0E0E0;
+  div img {
+    margin: auto;
+  }
+  
+ #contentor-distancia {
+    width: 100%;
+    text-align: center;
+    border-bottom: 0.11px solid #757575;
+    line-height: 0.1em;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    
+  }
+
+  #distancia {
+    background: #fff;
+    padding: 0 10px;
+     background-color: $cor-fundo;
+     color: #757575;
+  }
+}

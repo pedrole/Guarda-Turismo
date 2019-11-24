@@ -1,0 +1,65 @@
+<!--
+  Generated template for the DetalhesRestaurante page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <img [src]='local._embedded["wp:featuredmedia"][0].source_url.replace("http://localhost",servidor)' />  -->
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{titulo}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  <ion-slides pager class="slider-pager">
+    <ion-slide *ngFor="let imagem of imagens">
+    <img [src]='imagem.source_url.replace("http://localhost",servidor)' class="slide-image" />
+      <!-- <img [src]="imagem.source_url" class="slide-image" /> -->
+    </ion-slide>
+  </ion-slides>
+  <div text-center >
+    
+  
+  <button id="botao-visto"  ion-button outline icon-left  (click)="botaoVistoClick()">
+    <ion-icon [name]="iconVisto"></ion-icon>
+    Visto
+  </button>
+  <button id="botao-favoritos" ion-button outline icon-left (click)="botaoFavoritoClick()">
+    <ion-icon [name]="iconFavoritos"></ion-icon>
+    Favoritos
+  </button>
+  </div>
+  <ion-list>
+    <ion-item  *ngIf='local.acf.morada' (click)="abreMapa()">
+      <ion-icon name="pin"  color="icon" item-left small></ion-icon>
+      {{local.acf.morada}}
+    </ion-item>
+    <ion-item *ngIf='local?.acf?.telefone'>
+      <ion-icon name="call"  color="icon" item-left small></ion-icon>
+      {{local.acf.telefone}}
+    </ion-item>
+    <ion-item *ngIf='local?.acf?.gastronomia'>
+      <ion-icon name="restaurant"  color="icon" item-left small></ion-icon>
+      {{local.acf.gastronomia}}
+    </ion-item>
+    <ion-item *ngIf='local?.acf?.preco_medio'>
+      <ion-icon name="cash"  color="icon" item-left small></ion-icon>
+      {{local.acf.preco_medio}}€
+    </ion-item>
+    <ion-item *ngIf='local?.acf?.pagamento[0]'>
+      <ion-icon name="logo-euro"   color="icon" item-left small></ion-icon>
+      {{local.acf.pagamento.toString()}}
+    </ion-item>
+    <ion-item *ngIf='local?.categoria?.name'>
+     <ion-icon name="pricetag"   color="icon" item-left small></ion-icon>
+        {{local.categoria.name}}
+    </ion-item>
+    <ion-item *ngIf='local?.excerpt?.rendered' text-wrap>
+      <h1>Descrição</h1>
+      <!-- {{[innerText]=local.excerpt.rendered}} -->
+      <p [innerHTML]="local.excerpt.rendered">
+      </p>
+    </ion-item>
+  </ion-list>
+</ion-content>

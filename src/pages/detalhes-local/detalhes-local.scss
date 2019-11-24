@@ -1,0 +1,31 @@
+detalhes-local {
+
+
+    /*.slide-image {
+        padding: 0px;
+        top: 0;
+    }
+    ion-slides {
+        padding: 0px;
+        top: 0;
+    }*/
+    .slider-pager {
+        top: 20px;
+        height:200px;
+    }
+#botao-visto{
+    width: 40%;
+     display: inline-block;
+     background-color: color($colors, fundo-cartoes);
+}
+#botao-favoritos{
+    width: 50%;
+     display: inline-block;
+     background-color: color($colors, fundo-cartoes);
+}
+ 
+
+  /*  .slide-image{
+    	top: 20px;
+    }*/
+}

@@ -1,0 +1,64 @@
+<!--
+  Generated template for the LocaisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar #navbar>
+    <ion-title *ngIf='!isSearch'> {{titulo}}</ion-title>
+    <ion-buttons *ngIf='!isSearch' end>
+      <button ion-button icon-only color="royal" (click)="selecionarOrdenacao()">
+        <ion-icon name="md-reorder"></ion-icon>
+      </button>
+      <button ion-button icon-only color="royal" (click)="selecionaFiltro()">
+        <ion-icon name="funnel"></ion-icon>
+      </button>
+       <button ion-button icon-only  (click)="abreMapa()">
+        <ion-icon name="map"></ion-icon>
+      </button> 
+      <button ion-button icon-only color="" (click)="mostraSearchBar()">
+        <ion-icon name="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-searchbar hideCancelButton="false" #searchbar *ngIf='isSearch' (ionInput)="getItems($event)" [showCancelButton]="true" [(ngModel)]="myInput"  (ionCancel)="mostraSearchBar()">
+    </ion-searchbar>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!--  <ion-grid>
+    <ion-row *ngFor="let row of grid"  >
+      <ion-col width-50 margin-horizontal *ngFor="let local of row">
+        <img [src]='local._embedded["wp:featuredmedia"][0].source_url' />
+        <div>
+          <h2>{{local.title.rendered}}</h2>
+          <p> {{local.acf.Categoria.split(":").pop()}}</p>
+
+          
+                     <div> [innerHTML]="" + {{local.acf.tipo}}</div> 
+          <!-- <div> {{local.acf.Categoria.split(":").pop()}} -->
+  <!-- <div> {{local.acf.Categoria.substring(0,local.acf.Categoria.indexof(":"))}} -->
+  <!-- <p no-padding no-margin class="texto"> &nbsp;{{local.acf.tipo}}</p> -->
+  <!-- </div>
+       
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+  <ion-card *ngFor="let local of locais" (click)="abreDetalhes(local)">
+    <!-- <img [src]={{servidor}}  + {{local._embedded["wp:featuredmedia"][0].source_url}} /> -->
+    <img [src]='local._embedded["wp:featuredmedia"][0].source_url.replace("http://localhost",servidor)' /> 
+   <div class="card-title">{{local.title.rendered}}</div> 
+    <!-- <div class="card-subtitle">{{local.acf.tipo.split(":").pop()}}</div> -->
+    <div class="card-subtitle">{{local?.categoria?.name}}</div> 
+    <!-- <div class="card-subtitle">Igrejas</div>  -->
+  </ion-card>
+</ion-content>
+<!-- <h2 [innerHTML]="item.title.rendered"></h2>
+            <p  *ngIf='item?.acf?.tipo'> [innerHTML]="item.acf.tipo"</p>
+            <p hello world></p>
+
+            <ion-icon [name]="local.icon" item-left class="icon-categoria"></ion-icon>
+            {{local.nome}}
+            <p class="sub-categorias">
+               {{local.descricao}}
+            </p> -->

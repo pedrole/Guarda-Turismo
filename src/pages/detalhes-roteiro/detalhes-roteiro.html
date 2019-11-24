@@ -1,0 +1,36 @@
+<!--
+  Generated template for the DetalhesRoteiroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar #navbar>
+    <ion-title>Roteiro</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only  (click)="abreMapa()">
+        <ion-icon name="map"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="master">
+    <div text-center>
+      <img [src]='roteiro._embedded["wp:featuredmedia"][0].source_url.replace("http://localhost",servidor)' />
+    </div>
+    <div *ngFor="let local of roteiro.locais" (click)="abreDetalhes(local)">
+      <ion-card >
+        <ion-item color="fundo-cartoes">
+          <ion-thumbnail item-left>
+            <img [src]='local._embedded["wp:featuredmedia"][0].source_url.replace("http://localhost",servidor)'>
+          </ion-thumbnail>
+          <h2>{{local.title.rendered}}</h2>
+          <p icon-left small>
+            <ion-icon name="pin" small></ion-icon>{{local.acf.morada}}</p>
+        </ion-item>
+      </ion-card>
+      <p *ngIf='local?.distancia' id="contentor-distancia"><span id="distancia">{{local.distancia | number:'1.0-0'}}  m</span></p>
+    </div>
+  </div>
+</ion-content>
